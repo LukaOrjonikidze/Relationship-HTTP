@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'PostName')
+@section('title', $post->title)
 
 
 @section('body')
