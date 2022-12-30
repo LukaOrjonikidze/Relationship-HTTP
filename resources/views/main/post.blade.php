@@ -25,7 +25,7 @@
         <input type="text" name="name" id="name" placeholder="Name"> <br>
         <input type="text" name="message" id="message" placeholder="Message"> <br>
         <button id="comment" class="btn btn-success btn-sm">Comment</button>
-    </div>  
+    </div> 
     <script> 
         document.getElementById('comment').addEventListener('click', ()=>{
             const name = document.getElementById('name').value;
@@ -38,7 +38,10 @@
             })
             .then(function (response) {
                 const newComment= `<p><strong>${response.data.name}</strong></p> <p>${response.data.message}</p>`;
-                document.getElementById('comments').innerHTML += newComment;
+                $("#comments").fadeOut(400, ()=>{
+                    document.getElementById('comments').innerHTML += newComment;
+                    $('#comments').fadeIn();
+                });
                 console.log(response);
             })
             .catch(function (error) {
