@@ -22,7 +22,6 @@ Route::domain('admin.localhost')->group( function () {
     Route::get('/delete/{post}',[AdminController::class, 'deletePost'])->name('deletePost');
     Route::get('/delete/{post}/{comment}',[AdminController::class, 'deleteComment'])->name('deleteComment');
 });
-
 Route::get('/', [MainController::class, 'show'])->name('main');
 Route::get('/{post}', [MainController::class, 'showPost'])->name('showPost');
 

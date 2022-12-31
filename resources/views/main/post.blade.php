@@ -15,7 +15,7 @@
     <p><strong>{{$comment->name}}</strong></p>
     <p>{{$comment->message}}</p>
     @empty
-
+        
     @endforelse
     </div>
     <hr>
@@ -37,11 +37,13 @@
                 post_id: postId
             })
             .then(function (response) {
-                const newComment= `<p><strong>${response.data.name}</strong></p> <p>${response.data.message}</p>`;
+                const newComment = `<p><strong>${response.data.name}</strong></p> <p>${response.data.message}</p>`;
                 $("#comments").fadeOut(400, ()=>{
                     document.getElementById('comments').innerHTML += newComment;
                     $('#comments').fadeIn();
                 });
+                document.getElementById('name').value = "";
+                document.getElementById('message').value = "";
                 console.log(response);
             })
             .catch(function (error) {
